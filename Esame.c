@@ -1,28 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-// Programma che in base all'input dell'utente, ci fornisce il risultato dell'esame
+// Programma che chiede il numero di esami fatti e i voti ottenuti in ciascun esame.
 
 int main() {
+	
+    int i, n;
+    float media = 0.0; // Inizializzazione corretta della variabile media
+    
+    // Chiedi il numero di esami
+    printf("Inserisci il numero di esami: ");
+    scanf("%d", &n);
+    
+    int voti[n]; // Dichiarazione dell'array per i voti
+    
+    // Inserimento dei voti
+    printf("Inserisci i voti:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &voti[i]);
+        media += voti[i];  // Somma dei voti
+    }
+    
+    // Calcolo della media
+    media /= n;
 
-	int voto;
+    // Stampa del numero di esami e dei voti inseriti
+    printf("\nNumero di esami: %d\n", n);
+    printf("Voti: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", voti[i]);
+    }
 
-	printf("Inserisci voto: ");
-	scanf("%d", &voto);
+    // Stampa della media dei voti
+    printf("\nMedia voti: %.2f\n", media); // Stampa la media con due cifre decimali
 
-	if (voto > 31)
-		printf("Valore non corretto");
-	else if (voto == 31)
-		printf("A+");
-	else if (voto >= 28 && voto <= 30)
-		printf("A");
-	else if (voto >= 25)
-		printf("B");
-	else if (voto >= 22)
-		printf("C");
-	else if(voto >= 18)
-		printf("D");
-	else
-		printf("Esame non superato");
-		
+    return 0;
+    
 }
